@@ -1,15 +1,17 @@
 import React from 'react';
-import {BsBookmarkHeart} from 'react-icons/bs'
+import {BsBookmarkHeart} from 'react-icons/bs';
+import { Link } from "react-router-dom";
 
-function NavigationBar() {
+function NavigationBar({savedNum}) {
 
   return (
     <div className='navBar'>
-      <a href='/'>Advertisements</a>
-      <a href="/"> 
+      <Link to='/'>Advertisements</Link>
+      <Link to="/saved"> 
       <span>Saved </span> 
       <span><BsBookmarkHeart/></span>
-      </a>
+      </Link>
+      <div className='adv-num'>{savedNum}</div>
   </div>
   ); 
   
