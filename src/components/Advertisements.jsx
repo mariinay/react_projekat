@@ -2,10 +2,7 @@ import React from 'react';
 import OneAdvertisement from './OneAdvertisement';
 
 const Advertisements = ({advertisements, onAdd, onRemove}) => {
-    
-    const position = 'Position';
-    const company = 'Company';
-    const description = "Description";
+
 
   return (
     <div className='all-adv'>
