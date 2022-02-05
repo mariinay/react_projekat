@@ -4,6 +4,7 @@ import Advertisements from './components/Advertisements';
 import { useState } from 'react';
 import Saved from './components/Saved';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AdvDetails from './components/AdvDetails';
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"></link>
 
@@ -93,17 +94,31 @@ function App() {
     setSavedAdvertisements(newAdvertisements);
   };
 
+  const [advDetails, setAdvDetails] = useState();
+  const readMore = (id) => {
+    advertisements.map((advertisement) => {
+      if(advertisement.id === id){
+        setAdvDetails(advertisement);
+      }
+    });
+  }
+
   return (
     <BrowserRouter>
       <NavigationBar savedNum={savedNum} />
       <Routes>
         <Route path='/' element = {
-            <Advertisements advertisements={advertisements} onAdd={addToSaved} onRemove={removeFromSaved} />
+            <Advertisements advertisements={advertisements} onAdd={addToSaved} onRemove={removeFromSaved} readMore={readMore}/>
           }
         />
         <Route path='/saved' element = {
-            <Saved savedAdvertisements={savedAdvertisements} onAdd={addToSaved} onRemove={removeFromSaved} />
+            <Saved savedAdvertisements={savedAdvertisements} onAdd={addToSaved} onRemove={removeFromSaved} readMore={readMore}/>
           }
+        />
+
+        <Route path='/details' element = {
+          <AdvDetails advertisement={advDetails} onAdd={addToSaved} onRemove={removeFromSaved}/>
+        }
         />
         
       </Routes>

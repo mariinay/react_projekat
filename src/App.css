@@ -98,3 +98,20 @@ h1 {
   padding-right: 3px;
   border-radius: 2px;
 }
+
+.link {
+  color: rgb(50, 138, 128);
+}
+
+.adv-details {
+  display: flex;
+  flex-direction: row;
+}
+.adv-details-img {
+  width: 400px;
+  height: 300px;
+}
+
+.adv-details-body {
+  margin-left: 20px;
+}

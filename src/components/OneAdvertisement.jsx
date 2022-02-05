@@ -1,8 +1,9 @@
 import React from 'react';
 import {BsBookmarkHeart} from 'react-icons/bs'
 import {BsBookmarkHeartFill} from 'react-icons/bs'
+import { Link } from 'react-router-dom';
 
-const OneAdvertisement = ({advertisement, onAdd, onRemove}) => {
+const OneAdvertisement = ({advertisement, onAdd, onRemove, readMore}) => {
 
   return (
     <div className='adv'>
@@ -11,6 +12,7 @@ const OneAdvertisement = ({advertisement, onAdd, onRemove}) => {
             <h3 className='adv-position'>{advertisement.position}</h3>
             <h5 className='adv-company'>{advertisement.company}</h5>
             <p className='adv-description'>{advertisement.description}</p>
+            <Link to="/details" className='link' onClick={()=> readMore(advertisement.id)}>Read more</Link>
             {advertisement.saved === false ? (
                 
                 <button className='adv-btn-save'onClick={()=> onAdd(advertisement.id)}>
